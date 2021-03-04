@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{%block body%}
+<!-- Page Content -->
+    <div class="page-heading about-heading header-text" style="background-image: url({{asset('assets/images/villa1.jpg') }});">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4></h4>
+              <h2>Les plus belle Villas</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="products">
+      <div class="container">
+        <div class="row">
+        
+          {% for villa in villas %}
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="{{ path('villadetails', {'id': villa.id}) }}"><img src="{{ asset ('uploads/' ~ villa.image) }}" alt=""></a>
+              <div class="down-content">
+                <a href="{{ path('villadetails', {'id': villa.id}) }}"><h4>{{villa.nom}}</h4></a>
+                <a href="{{ path('villadetails', {'id': villa.id}) }}"><h6>{{villa.adresse}}</h6></a>
+
+                <h6>{{villa.price}}</h6>
+                <p>{{villa.description}}</p>
+
+
+                <small>
+                     <strong title="Available"><i class="fa fa-calendar"></i>{{villa.datedebut|date("m/d/y")}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Available"><i class="fa fa-calendar"></i>{{villa.datefin|date("m/d/y")}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Nights"><i class="fa fa-cube"></i> 20 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
+                </small><br>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+{%endblock%}

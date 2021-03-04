@@ -1,0 +1,34 @@
+{% extends 'back.html.twig' %}
+{%block body%}
+   <section id="main-content">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Formulaire transport</h3>
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            
+           
+           {{ form_start(form) }}
+              <div class="form-group">
+           {{ form_widget(form.nom,{'attr': {'class': 'form-control' , 'placeholder' : 'Nom'}}) }}
+              </div>
+              <div class="form-group">
+              {{ form_widget(form.price,{'attr': {'class': 'form-control' , 'placeholder' : 'Prix'}}) }}
+              </div>
+              <div class="form-group">
+              {{ form_widget(form.disponibilite,{'attr': {'class': 'form-control' , 'placeholder' : 'Disponibilite'}}) }}
+              </div>
+
+              <div class="form-group">
+              {{ form_widget(form.description,{'attr': {'class': 'form-control' , 'placeholder' : 'Description'}}) }}
+              </div>
+                
+              
+              <div class="form-send">
+              {{ form_widget(form.Envoyer,{'attr': {'class': 'btn btn--radius btn--green ', 'placeholder' : 'Envoyer'}}) }}
+              </div>
+
+            
+            {{ form_end(form) }}
+          </div>
+{%endblock%}

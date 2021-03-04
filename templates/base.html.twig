@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% block head %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>tabaani | Tabaani Agency Website</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{asset ('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{asset ('assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{asset ('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{asset ('assets/css/owl.css') }}">
+
+  {% endblock %}
+
+  
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/home"><h2><em>Tabaani</em> Agency </h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">Acceuil
+                      <span class="sr-only"></span>
+                    </a>
+                </li> 
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Hébergements</a>
+                    
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="/hebergement/hotels">Hôtels</a>
+                      <a class="dropdown-item" href="/hebergement/maisondhotes">Maison d'Hôte</a>
+                      <a class="dropdown-item" href="/hebergement/villas">Villa</a>
+                    </div>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="">Voyage Organisés</a></li>
+                <li class="nav-item"><a class="nav-link" href="/transports">Transports</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+                    
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="about-us.html">About Us</a>
+                      <a class="dropdown-item" href="testimonials.html">Testimonials</a>
+                      <a class="dropdown-item" href="terms.html">Terms</a>
+                    </div>
+                </li>
+                
+                <li class="nav-item"><a class="nav-link" href="/back">Admin</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  {% block body %}
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="banner header-text">
+      <div class="owl-banner owl-carousel">
+        <div class="banner-item-01">
+          <div class="text-content">
+            <h4>Turkey</h4>
+            <h2>Find your dream destination !</h2>
+            <h2></h2>
+          </div>
+        </div>
+        <div class="banner-item-02">
+          <div class="text-content">
+            <h4>Lisbon</h4>
+            <h2>Europe's best destination</h2>
+          </div>
+        </div>
+        <div class="banner-item-03">
+          <div class="text-content">
+            <h4>Malta</h4>
+            <h2>La merveilleuse</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+    <div class="latest-products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Featured Vacations</h2>
+              <a href="packages.html">view more <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="package-details.html"><img src="assets/images/villa1.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="package-details.html"><h4>Villa à Hammamet</h4></a>
+
+                <h6>3000DT</h6>
+
+                <p>On n'a pas tous la possibilité de vivre à l'année dans une maison avec une piscine. Mais cela peut être tout en revanche une belle idée de vacances : louer une villa pourvue d'un beau bassin, d'un jacuzzi ou de n'importe quel type de point d'eau privatisé, en extérieur ou en intérieur est un plaisir auquel nous sommes tous sensibles ou presque.</p>
+
+                <small>
+                     <strong title="Available"><i class="fa fa-calendar"></i> Spring</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Nights"><i class="fa fa-cube"></i> 20 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="package-details.html"><img src="assets/images/radisson.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="package-details.html"><h4>Radisson Blu Hotel, Vadistanbul</h4></a>
+
+                <h6>1000DT</h6>
+
+                <p>Doté d’un jardin, d’un bar, d’un restaurant et d’une salle de sport, le Radisson Blu Hotel, Vadistanbul se trouve à Istanbul. Il propose notamment un service d'étage, un centre d'affaires et une connexion Wi-Fi accessible gratuitement dans l'ensemble des locaux. Vous pourrez profiter d'une piscine intérieure, d'un hammam et d'une réception ouverte 24h/24.</p>
+
+                <small>
+                     <strong title="Available"><i class="fa fa-calendar"></i> Spring</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Nights"><i class="fa fa-cube"></i> 20 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="package-details.html"><img src="assets/images/maison1.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="package-details.html"><h4>DAR GINO KELIBIA</h4></a>
+
+                <h6>100DT</h6>
+
+<p>
+
+Dar Gino un cadre naturel imprégné d’un langage architectural typiquement méditerranéen.. !
+ </p>
+                <small>
+                     <strong title="Available"><i class="fa fa-calendar"></i> Spring</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Nights"><i class="fa fa-cube"></i> 20 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="best-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>About Us</h2>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="left-content">
+              <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit. Explicabo, esse consequatur alias repellat in excepturi inventore ad <a href="#">asperiores</a> tempora ipsa. Accusantium tenetur voluptate labore aperiam molestiae rerum excepturi minus in pariatur praesentium, corporis, aliquid dicta.</p>
+              <ul class="featured-list">
+                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                <li><a href="#">Consectetur an adipisicing elit</a></li>
+                <li><a href="#">It aquecorporis nulla aspernatur</a></li>
+                <li><a href="#">Corporis, omnis doloremque</a></li>
+              </ul>
+              <a href="about-us.html" class="filled-button">Read More</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="assets/images/about-1-570x350.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="services" style="background-image: url(assets/images/other-image-fullscren-1-1920x900.jpg);" >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Latest blog posts</h2>
+
+              <a href="blog.html">read more <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item">
+              <a href="#" class="services-item-image"><img src="assets/images/blog-1-370x270.jpg" class="img-fluid" alt=""></a>
+
+              <div class="down-content">
+                <h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</a></h4>
+
+                <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item">
+              <a href="#" class="services-item-image"><img src="assets/images/blog-2-370x270.jpg" class="img-fluid" alt=""></a>
+
+              <div class="down-content">
+                <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h4>
+
+                <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item">
+              <a href="#" class="services-item-image"><img src="assets/images/blog-3-370x270.jpg" class="img-fluid" alt=""></a>
+
+              <div class="down-content">
+                <h4><a href="#">Aperiam modi voluptatum fuga officiis cumque</a></h4>
+
+                <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="happy-clients">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Happy Clients</h2>
+
+              <a href="testimonials.html">read more <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="owl-clients owl-carousel text-center">
+              <div class="service-item">
+                <div class="icon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <div class="down-content">
+                  <h4>John Doe</h4>
+                  <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                </div>
+              </div>
+              
+              <div class="service-item">
+                <div class="icon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <div class="down-content">
+                  <h4>Jane Smith</h4>
+                  <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                </div>
+              </div>
+              
+              <div class="service-item">
+                <div class="icon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <div class="down-content">
+                  <h4>Antony Davis</h4>
+                  <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                </div>
+              </div>
+              
+              <div class="service-item">
+                <div class="icon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <div class="down-content">
+                  <h4>John Doe</h4>
+                  <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                </div>
+              </div>
+              
+              <div class="service-item">
+                <div class="icon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <div class="down-content">
+                  <h4>Jane Smith</h4>
+                  <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                </div>
+              </div>
+              
+              <div class="service-item">
+                <div class="icon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <div class="down-content">
+                  <h4>Antony Davis</h4>
+                  <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <div class="row">
+                <div class="col-md-8">
+                  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 text-right">
+                  <a href="contact.html" class="filled-button">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}  
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{asset ('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{asset ('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{{asset ('assets/js/custom.js') }}"></script>
+    <script src="{{asset ('assets/js/owl.js') }}"></script>
+  
+</html>

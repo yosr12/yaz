@@ -1,0 +1,47 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+<div class="container">
+
+  <h2> <center>Liste des Hotels</h2>
+
+  <br> </br>          
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Prix</th>
+        <th>description</th>
+        <th>Date Debut</th>
+        <th>Date fin</th>
+        <th>Editer</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for hotel in hotels %}
+      <tr><td>
+       {{ hotel.nom }}
+      </td>   <td>
+        {{ hotel.adresse}}
+       </td> <td>
+     {{ hotel.price}}
+       </td> <td>
+     {{ hotel.description }}
+      </td>   <td>
+        {{ hotel.datedebut|date("m/d/y")}}
+       </td> <td>
+     {{ hotel.datefin|date("m/d/y")}}
+       
+
+     <a href=""> Modifier</a>
+     <a href=""> Supprimer</a>
+
+     </tr> 
+    </tbody>
+    {% endfor %}
+  </table>   
+
+
+</div>
+{% endblock %}

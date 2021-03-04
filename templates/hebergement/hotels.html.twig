@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{%block body%}
+
+<div class="page-heading about-heading header-text" style="background-image: url({{asset('assets/images/villa.jpg') }});">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4></h4>
+              <h2>Les Hotels De Luxe</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<div class="latest-products">
+      <div class="container">
+        <div class="row">
+          
+          {% for hotel in hotels %}
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="{{ path('hoteldetails', {'id': hotel.id}) }}"><img src="{{ asset ('uploads/' ~ hotel.image) }}" alt=""></a>
+              <div class="down-content">
+                <a href="{{ path('hoteldetails', {'id': hotel.id}) }}"><h4>{{hotel.nom}}</h4></a>
+                <a href="{{ path('hoteldetails', {'id': hotel.id}) }}"><h6>{{hotel.adresse}}</h6></a>
+
+                <h6>{{hotel.price}}</h6>
+                <p>{{hotel.description}}</p>
+
+
+                <small>
+                     <strong title="Available"><i class="fa fa-calendar"></i>{{hotel.datedebut|date("m/d/y")}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Available"><i class="fa fa-calendar"></i>{{hotel.datefin|date("m/d/y")}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Nights"><i class="fa fa-cube"></i> 20 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
+                </small><br>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          
+          
+        </div>
+      </div>
+    </div>
+
+
+{%endblock%}

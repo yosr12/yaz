@@ -1,0 +1,59 @@
+{% extends 'back.html.twig' %}
+{%block body%}
+<section id="main-content">
+      <section class="wrapper">
+        
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt">
+          
+
+
+  <br> </br>
+  <br> </br>
+  <h2> <center>Liste des villa</h2>
+  <div class="col-md-12">
+            <div class="section-heading">
+              <a href="/hebergement/newVilla">Ajouter un Offre <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Prix</th>
+        <th>Description</th>
+        <th>Date Debut</th>
+        <th>Date Fin</th>
+        <th>Editer</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for villa in villas %}
+      <tr><td>
+       {{ villa.nom }}
+      </td>   <td>
+        {{ villa.adresse}}
+       </td> <td>
+     {{ villa.price}}
+       </td> <td>
+     {{ villa.description }}
+      </td>   <td>
+        {{ villa.datedebut|date("m/d/y")}}
+       </td> <td>
+     {{ villa.datefin|date("m/d/y")}}
+     <td>
+       
+
+     <a href="{{ path('updateVilla', {'id': villa.id}) }}"> Modifier</a>
+     <a href="{{path('deleteVilla', {'id': villa.id}) }}"> Supprimer</a>
+     </td>
+
+     </tr> 
+    </tbody>
+    {% endfor %}
+  </table>
+    </div>
+
+
+{%endblock%}

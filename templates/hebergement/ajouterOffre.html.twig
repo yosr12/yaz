@@ -1,0 +1,60 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<section id="main-content">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Formulaire Hébergement</h3>
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            
+        {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+              <div class="form-group">
+              {{ form_errors(form.nom) }}
+           {{ form_widget(form.nom,{'attr': {'class': 'form-control' , 'placeholder' : 'Nom'}}) }}
+              </div>
+              <div class="form-group">
+              {{ form_errors(form.price) }}
+              {{ form_widget(form.price,{'attr': {'class': 'form-control' , 'placeholder' : 'Prix'}}) }}
+              </div>
+              <div class="form-group">
+              {{ form_errors(form.adresse) }}
+              {{ form_widget(form.adresse,{'attr': {'class': 'form-control' , 'placeholder' : 'Adresse'}}) }}
+              </div>
+
+              <div class="form-group">
+              {{ form_errors(form.description) }}
+              {{ form_widget(form.description,{'attr': {'class': 'form-control' , 'placeholder' : 'Description'}}) }}
+              </div>
+                <div class="form-group">
+                {{ form_errors(form.image) }}
+                {{ form_widget(form.image,{'attr': {'class': 'input--style-1' , 'placeholder' : 'image'}}) }}
+                
+              </div>
+              <div class="col-2">
+                    <div class="input-group">
+                    {{ form_errors(form.datedebut) }}
+                        {{ form_widget(form.datedebut,{'attr': {'class': 'input--style-1 js-datepicker' , 'placeholder' : 'Date Debut'}}) }}
+                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="input-group">
+                    {{ form_errors(form.datefin) }}
+                        {{ form_widget(form.datefin,{'attr': {'class': 'input--style-1 js-datepicker' , 'placeholder' : 'Date fin'}}) }}
+                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                    </div>
+                </div>
+
+
+              
+              <div class="form-send">
+              {{ form_widget(form.Envoyer,{'attr': {'class': 'btn btn--radius btn--green ', 'placeholder' : 'Envoyer'}}) }}
+              </div>
+            
+        {{ form_end(form) }}
+        </div>
+{% endblock %}

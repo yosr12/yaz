@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{%block body%}
+<!-- Page Content -->
+    <div class="page-heading about-heading header-text" style="background-image: url({{asset('assets/images/maisondhote.jpg') }});;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4></h4>
+              <h2>Les plus belle maisons d'hôte</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="products">
+      <div class="container">
+        <div class="row">
+        
+          {% for maison in maisons %}
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="{{ path('maisondetails', {'id': maison.id}) }}"><img src="{{ asset ('uploads/' ~ maison.image) }}" alt=""></a>
+              <div class="down-content">
+                <a href="{{ path('maisondetails', {'id': maison.id}) }}"><h4>{{maison.nom}}</h4></a>
+                <a href="{{ path('maisondetails', {'id': maison.id}) }}"><h6>{{maison.adresse}}</h6></a>
+
+                <h6>{{maison.price}}</h6>
+                <p>{{maison.description}}</p>
+
+
+                <small>
+                     <strong title="Available"><i class="fa fa-calendar"></i>{{maison.datedebut|date("m/d/y")}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Available"><i class="fa fa-calendar"></i>{{maison.datefin|date("m/d/y")}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Nights"><i class="fa fa-cube"></i> 20 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                     <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
+                </small><br>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+{%endblock%}

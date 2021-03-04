@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!-- Page Content -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>{{transport.disponibilite}}</h4>
+
+              <h2>{{transport.nom}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="products">
+      <div class="container">
+        <div class="row">
+          
+
+          <div class="col-md-6">
+              <p class="lead">
+                   <i class="fa fa-calendar"></i> {{transport.type}} &nbsp;&nbsp; 
+              </p>
+
+              <br>
+
+              <p><i class="fa fa-map-marker"></i>  <strong>{{transport.price}}</strong></p>
+
+              <br>
+
+              
+              <h3><p>{{transport.description}}</p></h3>   
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="section-heading">
+              <h2>Map</h2>
+            </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11628.751733874766!2d27.948302749999996!3d43.22651925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbg!4v1592215682178!5m2!1sen!2sbg" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div>
+
+          <div class="col-md-3">
+            <div class="section-heading">
+              <h2>Contact Details</h2>
+            </div>
+            
+            <div class="left-content">
+              <p>
+                <span>Name</span>
+
+                <br>
+
+                <strong>John Smith</strong>
+              </p>
+
+              <p>
+                <span>Phone</span>
+
+                <br>
+                
+                <strong>
+                  <a href="tel:123-456-789">123-456-789</a>
+                </strong>
+              </p>
+
+              <p>
+                <span>Mobile phone</span>
+
+                <br>
+                
+                <strong>
+                  <a href="tel:456789123">456789123</a>
+                </strong>
+              </p>
+
+              <p>
+                <span>Email</span>
+
+                <br>
+                
+                <strong>
+                  <a href="mailto:john@carsales.com">john@carsales.com</a>
+                </strong>
+              </p>
+            
+              <div class="contact-form">
+                <button type="submit" class="filled-button">Request Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'back.html.twig' %}
+{%block body%}
+
+<section id="main-content">
+      <section class="wrapper">
+        
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt">
+          
+
+  <br> </br>
+  <br> </br>
+  <h2> <center>Liste des Transport</h2>
+  <div class="col-md-12">
+            <div class="section-heading">
+              <a href="/transport/add">Ajouter un Offre <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Type</th>
+        <th>Prix</th>
+        <th>Disponibilité</th>
+        <th>Description</th>
+        <th>Editer</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for transport in transports %}
+      <tr><td>
+       {{ transport.nom }}
+      </td>   <td>
+        {{ transport.type}}
+       </td> <td>
+     {{ transport.price}}
+       </td> <td>
+     {{ transport.disponibilite }}
+      </td>   <td>
+        {{ transport.description}}
+      </td> 
+       <td>
+
+       <a href="{{ path('updateTransport', {'id': transport.id}) }}"> Modifier</a>
+       <a href="{{path('deleteTransport', {'id': transport.id}) }}"> Supprimer</a>
+       </td>
+
+     </tr> 
+    </tbody>
+    {% endfor %}
+  </table>
+    </div>
+
+
+{%endblock%}
