@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+
+  <h2> <center>Liste des réclamations</h2>
+
+  <br> </br>          
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sujet</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Editer</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for Reclamation in Reclamations %}
+      <tr><td>
+       {{ Reclamation.sujet }}
+      </td>   <td>
+        {{ Reclamation.date}}
+       </td> <td>
+     {{ Reclamation.description}}
+       </td> <td>
+
+     <a href="{{ path('updatereclamation', {'id': Reclamation.id}) }}"> Modifier</a>
+     <a href="{{path('deletereclamation', {'id': Reclamation.id}) }}"> Supprimer</a>
+
+     </tr> 
+    </tbody>
+    {% endfor %}
+  </table>   
+
+
+</div>
+{% endblock %}
+
