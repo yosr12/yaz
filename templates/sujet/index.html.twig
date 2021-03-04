@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sujet index{% endblock %}
+ {% set id = 1 %}
+{% block body %}
+    <h1>Sujet index</h1>
+
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sujet</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sujet in sujets %}
+            <tr>
+                <td>{{ sujet.id }}</td>
+                <td>{{ sujet.sujet }}</td>
+                <td>{{ sujet.description }}</td>
+                <td>{{ sujet.image }}</td>
+                <td>{{ sujet.utilisateur.prenom }}</td>
+                <td>
+                    <a href="{# path('sujet_show', {'id': sujet.id}) #}">show</a>
+                    <a href="{{ path('sujet_edit', {'id': sujet.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sujet_new') }}">Create new</a>
+
+    <div class="products" >
+
+        <div class="container ">
+            <div class="col-md-12">
+                <div class="contact-form">
+                    <div class="form-group">
+                        <h5>Recherche par tags</h5>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                        </div>
+
+                        <div class="col-4">
+                            <button class="filled-button" type="button">Go</button>
+                        </div>
+
+                        <div class="col-4">
+                            <a class="btn btn-primary" href="{{ path('sujet_new') }}">Commencer un nouveau sujet </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+
+                <table class="table table-striped">
+                    <tbody>
+                        {% for sujet in sujets %}
+                            <tr>
+                                <td>
+                                    <div class="col-md-12">
+                                        <div class="">
+                                            <div class="down-content">
+                                                <h4><a href="{{ path('sujet_show', {'id': sujet.id , 'iduser': id} ) }}">{{ sujet.sujet }}</a></h4>
+
+                                                <p style="margin: 0;"> {{ sujet.utilisateur.prenom }} &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp;
+                                                    {% for tag in sujet.getTag %}
+                                                        {{ tag.tag }},
+                                                    {% endfor %}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">no records found</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <ul class="pages">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

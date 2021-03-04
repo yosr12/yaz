@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sujet{% endblock %}
+ {% set id = 1 %}
+{% block body %}
+<script>
+    function myFunction() {
+        document.getElementById("demo").innerHTML = '<div class="col-lg-12"><fieldset><textarea n class="form-control" placeholder="Your Message" required=""></textarea></fieldset></div>';
+    }
+</script>
+<div class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" >
+            </div>
+            <div class="col-md-2">
+                <h3 style="color: orange;">{{ sujet.utilisateur.nom }} {{ sujet.utilisateur.prenom }}</h3>
+                <img src="{{ asset("https://scontent.ftun6-1.fna.fbcdn.net/v/t1.0-1/p160x160/81172381_1506460919509776_1096149475837083648_o.jpg?_nc_cat=111&ccb=3&_nc_sid=7206a8&_nc_ohc=YkBGQtfKehkAX8O_uhk&_nc_ht=scontent.ftun6-1.fna&tp=6&oh=4def6e4c3767e0259f0d44e86f80c722&oe=60634DAA") }}" style="border-radius: 50%;" height="70px" width="70px">
+            </div>
+            <div class="col-md-10">
+                <div class="section-heading">
+                    <h2>{{ sujet.sujet }}</h2>
+                    <p>Tags :{% for tag in sujet.getTag %}
+                            {{ tag.tag }},
+                        {% endfor %}</p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="section-heading">
+                    <p> {{ sujet.description }} </p>
+                </div>
+            </div>
+    </div>
+        <div class="col-md-8">
+            <div class="section-heading">
+                <table class="table table-striped">
+                    <tbody>
+                    {% for commentaires in sujet.getCommentaires %}
+                        <tr>
+                            <td>
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <div class="down-content">
+                                            <span style="display: flex;" >
+                                                <img src="{{ asset("https://scontent.ftun6-1.fna.fbcdn.net/v/t1.0-1/p160x160/81172381_1506460919509776_1096149475837083648_o.jpg?_nc_cat=111&ccb=3&_nc_sid=7206a8&_nc_ohc=YkBGQtfKehkAX8O_uhk&_nc_ht=scontent.ftun6-1.fna&tp=6&oh=4def6e4c3767e0259f0d44e86f80c722&oe=60634DAA") }}" height="50px" width="50px" style="border-radius: 50%;">
+                                                <h6 style="color: orange;" >{{ sujet.utilisateur.nom }}</h6>
+                                            </span>
+                                            <p style="margin: 0;"> {{ commentaires.commentaire  }} &nbsp;</p>
+                                            <span style="display: flex;" class="pull-right" >
+                                               <p> <a style="margin-left: 20px" href="{{ path('commentaire_delete', {'id': commentaires.id,'idsujet':sujet.id}) }}">delete</a></p>
+                                               <p><a href="{{ path('commentaire_edit', {'id': commentaires.id,'idsujet':sujet.id}) }}">edit</a></p>
+                                            </span>
+                                            <button onclick="myFunction({{ commentaires.id }})">Click me</button>
+                                        {% if  commentaire.id ==%}
+                                            <p id="demo"></p>
+                                         {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="contact-form">
+
+        {{ form_start(form) }}
+
+        <div class="row">
+            <img src="{{ asset("https://scontent.ftun6-1.fna.fbcdn.net/v/t1.0-1/p160x160/81172381_1506460919509776_1096149475837083648_o.jpg?_nc_cat=111&ccb=3&_nc_sid=7206a8&_nc_ohc=YkBGQtfKehkAX8O_uhk&_nc_ht=scontent.ftun6-1.fna&tp=6&oh=4def6e4c3767e0259f0d44e86f80c722&oe=60634DAA") }}" style="border-radius: 50%;" height="70px" width="70px">
+
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <fieldset>
+                    {{ form_widget(form.commentaire,{'attr': {'class': 'form-control' , 'placeholder' : 'Repondre à ce sujet'}}) }}
+                </fieldset>
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12" hidden>
+                <fieldset>
+                    {{ form_widget(form.utilisateur,{'attr': {'placeholder' : 'tags','value' : id }}) }}
+                </fieldset>
+            </div>
+
+            <div class="col-lg-8">
+                <fieldset>
+                    <button type="submit" id="form-submit" class="filled-button pull-right">{{ button_label|default('Repondre') }}</button>
+                </fieldset>
+            </div>
+        </div>
+        {{ form_end(form) }}
+        </div>
+        <a href="{{ path('sujet_index') }}">back to list</a>
+        <a href="{{ path('sujet_edit', {'id': sujet.id}) }}">edit</a>
+</div>
+
+{% endblock %}
+
