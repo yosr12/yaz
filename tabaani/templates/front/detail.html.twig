@@ -1,0 +1,398 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block B %}
+    <!-- Header -->
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><h2>Travel Agency <em>Website</em></h2></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                    <ul class="navbar-nav ml-auto">
+
+                        {% block champ1 %}
+                            <li class="nav-item ">
+                                <a class="nav-link" href="index.html">Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        {% endblock %}
+
+                        {% block champ2 %}
+
+
+                            <li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Voyage Organisé</a>
+
+                                <div class="dropdown-menu">
+
+                                    <a class="dropdown-item active" href="affiche">séjours à l'étranger</a>
+                                    <a class="dropdown-item" href="terms.html">séjours en Tunisie</a>
+                                </div>
+                            </li>
+
+
+
+                        {% endblock %}
+
+
+                        {% block champ3 %}
+                            <li class="nav-item"><a class="nav-link" href="promotion.html">Promotions</a></li>
+                        {% endblock %}
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="about-us.html">About Us</a>
+                                <a class="dropdown-item" href="testimonials.html">Testimonials</a>
+                                <a class="dropdown-item" href="terms.html">Terms</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    {% block b1%}
+
+        <div class="banner header-text">
+
+            </div>
+
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+
+        <!-- Additional Scripts -->
+        <script src="{{ asset('assets/js/custom.js') }}"></script>
+        <script src="{{ asset('assets/js/owl.js') }}"></script>
+    {% endblock %}
+
+{% endblock B %}
+
+
+
+{%block body%}
+    <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- Page Content -->
+    <div class="page-heading about-heading header-text" style="background-image: url(assets/images/blog-1-370x270.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+
+
+                        <h2>Dubai</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <div class="container">
+            <div class="section-heading" style="border: 0">
+                <h2>Informations</h2>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3">
+                            <p class="pjVpProductPolicyTitle">
+                                <strong>Ce tarif comprend</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-10 col-sm-9">
+                            <p>
+                                -Billet d’avion TUN – DXB – TUN<br>
+                                -07 nuits à Dubai dans un hôtel 5 * Avani Deira Hotel en Logement petit déjeuner<br>
+                                -UAE Visa<br>
+                                -City tour Dubaï<br>
+                                -Visite du global village .<br>
+                                -Shopping Tour<br>
+                                -Transfert aéroport hôtel en bus moderne climatisé.<br>
+                                -Guide parlant arabe / français lors des visites mentionnées.<br>
+
+
+                        </div>
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3">
+                            <p>
+                                <strong>Ce tarif ne comprend pas</strong>
+                            </p>
+                        </div>
+
+                        <div class="col-md-10 col-sm-9">
+                            <p>
+                                -Timbre de voyages 60 DT<br>
+
+                                -Les assurances<br>
+
+                                -Les déjeuners<br>
+
+                                -Les éventuels frais pour l’utilisation des appareils Photo / vidéo dans les sites et monuments<br>
+
+                                -Les dépenses a caractère personnel, les pourboires, les appels téléphonique, linge, mini bar, service dans la chambre, boissons etc.<br>
+
+                                -L’eau minérale / boissons pendant les visites et les trajets<br>
+
+                                -Autres repas non mentionnés
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3">
+                            <p>
+                                <strong>Animaux</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-10 col-sm-9">
+                            <p>
+                                Interdit
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3">
+                            <p>
+                                <strong>Programme</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-10 col-sm-9">
+                            <div align="justify">
+
+                                <p><strong>Jour 01&nbsp;:</strong> Rassemblement à l’aéroport de Tunis Carthage, assistance et vol vers Dubai, arrivé transfert à l’hôtel check in et journée libre. </p>
+                                <p><strong>Jour 02&nbsp;:</strong> petit déjeuner à l’hôtel, puis  le début de l’aventure en commençant par un City Tour de Dubaï ou vous allez explorer le fameux  quartier de la marina et de Jumeirah connue par son aspect architecturale et son emplacement magnifique, arrêt photo Burj Al Arab, Atlantis the Palm,  la grande mosquée Jumeirah, musée de Dubaï, souk des épices et du souk de l’or visite de  l’extérieure Burj Khalifa  et possibilité de faire une Visite au sommet (facultatif).</p>
+                                <p><strong>Jour 03&nbsp;:</strong> Petit déjeuner à l’hôtel et temps libre. L’après-midi nous vous ramenons pour une visite inoubliable pour le global village cet endroit magique qui permet aux visiteurs de toutes les cultures de se réunir pour découvrir les autres pays du monde en seulement quelques heures. Baladez-vous du Big Ben de Londres à la tour penchée de Pise en Italie, prenez des selfies devant le décor si romantique du Taj Mahal ou remontez le temps vers l’Égypte antique. vous serez émerveillez par les spectacles organisés, allant des cracheurs de feu au break dance, en passant par des comédies musicales.</p>
+                                <p><strong>Jour 04&nbsp;:</strong> Petit déjeuner à d’hôtel et Journée libre, Durant cette journée on va vous emmenez faire du shopping dans les prestigieux mall de Dubaï ou vous allez trouver toutes les marques accessibles à tous les budgets.. Fin de l’excursion retour à l’hôtel et check in.</p>
+                                <p><strong>Jour 05&nbsp;:</strong> Petit déjeuner à d’hôtel et Journée libre,. Excursion Safari en extra.</p></div>
+                            <p align="justify"><strong>Jour 06&nbsp;:</strong> Petit déjeuner et matinée libre, le soir nous vous ramenons pour un voyage d mille et une nuit pour un diner au bord d’un magnifique bateau, vous serez certainement émerveillé par la beauté de la ville le soir, la splendeur de la magie des hauts bâtiments (extra).</p>
+                            <p><strong>Jour 07&nbsp;:</strong> Petit déjeuner et journée libre.</p>
+                            <p><strong>Jour 08&nbsp;:</strong> Petit déjeuner à d’hôtel et Journée libre- transfert de l’hôtel à l’aéroport pour retour vers Tunis</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3">
+                            <p>
+                                <strong>Prix</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-10 col-sm-9">
+                            <div>
+
+                                <p><strong>3000 DT</div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3">
+                            <p>
+                                <strong>Notice Covide-19</strong>
+                            </p>
+                        </div>
+
+                        <div class="col-md-10 col-sm-9">
+                            <div>
+                                <p>
+                                    Avant de voyager, Nous vous prions de vous informer  par vos propres soins des mesures sanitaires et conditions d'entrée et de séjour qui pourraient être prises par les autorités du pays de destination ou au retour en Tunisie. </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="section-heading">
+                        <h2>Réservez ce séjour</h2>
+                    </div>
+
+                    <div class="contact-form">
+                        <form id="contact" action="" method="post">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <fieldset>
+                                        <input name="name" type="text" class="form-control" id="Nom" placeholder="Nom" required="">
+                                    </fieldset>
+                                </div>
+                                <div class="col-sm-6">
+                                    <fieldset>
+                                        <input name="name" type="text" class="form-control" id="Prénom" placeholder="Prénoom" required="">
+                                    </fieldset>
+
+
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <fieldset>
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <fieldset>
+                                        <input name="phone" type="text" class="form-control" id="télephone" placeholder="Télephone" required="">
+                                    </fieldset>
+                                </div>
+
+
+
+
+
+
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Notes" required=""></textarea>
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <fieldset>
+
+
+
+
+                                        <button type="submit" id="form-submit" class="filled-button" style="height:50px">Je réserve ></button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+                </footer>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Book Now</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="contact-form">
+                                    <form action="#" id="contact">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <fieldset>
+                                                    <input type="text" class="form-control" placeholder="Pick-up location" required="">
+                                                </fieldset>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <fieldset>
+                                                    <input type="text" class="form-control" placeholder="Return location" required="">
+                                                </fieldset>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <fieldset>
+                                                    <input type="text" class="form-control" placeholder="Pick-up date/time" required="">
+                                                </fieldset>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <fieldset>
+                                                    <input type="text" class="form-control" placeholder="Return date/time" required="">
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Enter full name" required="">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <fieldset>
+                                                    <input type="text" class="form-control" placeholder="Enter email address" required="">
+                                                </fieldset>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <fieldset>
+                                                    <input type="text" class="form-control" placeholder="Enter phone" required="">
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+    </body>
+
+
+{%endblock%}

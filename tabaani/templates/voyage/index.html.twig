@@ -1,0 +1,47 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Voyage index{% endblock %}
+
+{% block body %}
+    <h1>Voyage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Destination</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voyage in voyages %}
+            <tr>
+                <td>{{ voyage.id }}</td>
+                <td>{{ voyage.destination }}</td>
+                <td><img src="{{ asset('uploads/'~voyage.image) }}"width="150"height="120"alt=""/> </td>
+                <td>{{ voyage.description }}</td>
+                <td>{{ voyage.prix }}</td>
+                <td>{{ voyage.dateDebut ? voyage.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ voyage.dateFin ? voyage.dateFin|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('voyage_show', {'id': voyage.id}) }}"style="color:blue;">show</a>
+                    <br>
+                    <a href="{{ path('voyage_edit', {'id': voyage.id}) }}"style="color:green;">edit</a>
+                    <a href="{{ path('promotion_new', {'idvoyage': voyage.id}) }}" style="color:red;">Ajouter promotion</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('voyage_new') }}" style="color:red;">Create new</a>
+{% endblock %}
