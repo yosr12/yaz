@@ -96,4 +96,18 @@ class ReclamationController extends AbstractController
 
     }
 
+    /**
+     * @Route("/showreclamation/{id}", name="showreclamation")
+     */
+
+    public function showreclamation($id): Response
+    {
+        $repository=$this->getDoctrine()->getRepository(Reclamation::Class);
+        $Reclamation=$repository->find($id);
+
+        return $this->render('reclamation/showReclamation.html.twig', [
+            'Reclamation' => $Reclamation,
+        ]);
+}
+ 
 }

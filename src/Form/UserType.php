@@ -11,6 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class UserType extends AbstractType
@@ -22,7 +23,7 @@ class UserType extends AbstractType
             ->add('fname',TextType::class)
             ->add('birthday')
             ->add('gender')
-            ->add('num',TextType::class)
+            ->add('num',IntegerType::class)
             ->add('email',EmailType::class)
             ->add('password',PasswordType::class)
             ->add('confirmpassword',PasswordType::class)

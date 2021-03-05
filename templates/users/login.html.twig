@@ -29,8 +29,8 @@
                     <div class="signin-form">
                         <h2 class="form-title">Sign up</h2>
 
-                        <form action = "{{ path ('test_login')}} " method="post" >
-
+                        <form action = "{{ path ('login')}} " method="post" >
+                        
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input  placeholder="Your Email" Required name ="_username" type="text" class="form-control" />
@@ -43,8 +43,15 @@
 
 
                             <div class="form-group form-button">
-                                <input type="submit" class="form-submit" value="Log in !"/>
+                                <input href="/users" type="submit" class="form-submit" value="Log in !"/>
                             </div>
+                            
+                        <div class="col-md-12">
+                        <div class="section-heading">
+                        <a href="/users"> Retour <i class="fa fa-angle-right"></i></a>
+                       </div>
+                       </div>
+                       
                         </form>
                         <div class="social-login">
                             <span class="social-label">Or login with</span>
@@ -55,6 +62,7 @@
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
             </div>

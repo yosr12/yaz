@@ -27,6 +27,7 @@
      {{ Reclamation.description}}
        </td> <td>
 
+     <a href="{{path('showreclamation', {'id': Reclamation.id}) }}"> Consulter</a>
      <a href="{{ path('updatereclamation', {'id': Reclamation.id}) }}"> Modifier</a>
      <a href="{{path('deletereclamation', {'id': Reclamation.id}) }}"> Supprimer</a>
 
