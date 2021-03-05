@@ -39,6 +39,7 @@
      {{ User.password}}
        </td> <td>
 
+     <a href="{{path('showUser', {'id': User.id}) }}"> Consulter</a>
      <a href="{{ path('updateUser', {'id': User.id}) }}"> Modifier</a>
      <a href="{{path('deleteUser', {'id': User.id}) }}"> Supprimer</a>
 

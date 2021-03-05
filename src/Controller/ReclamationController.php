@@ -109,5 +109,48 @@ class ReclamationController extends AbstractController
             'Reclamation' => $Reclamation,
         ]);
 }
+ /**
+     * @Route("/listrecBack", name="listrecBack")
+     */
+    public function listrecBack()
+
+   {
+    $repository=$this->getDoctrine()->getRepository(Reclamation::Class);
+    $Reclamations=$repository->findAll();
+
+    return $this->render('reclamation/listrecBack.html.twig', [
+        
+        'Reclamations' => $Reclamations,
+    ]);
+    
+    }
+ /**
+     * @Route("/showreclamationBack/{id}", name="showreclamationBack")
+     */
+
+    public function showreclamationBack($id): Response
+    {
+        $repository=$this->getDoctrine()->getRepository(Reclamation::Class);
+        $Reclamation=$repository->find($id);
+
+        return $this->render('reclamation/showreclamationBack.html.twig', [
+            'Reclamation' => $Reclamation,
+        ]);
+}
+
+    /**
+     * @Route("/deletereclamationBack/{id}", name="deletereclamationBack")
+     */
+    public function deletereclamationBack($id)
+    {
+      
+        $em=$this->getDoctrine()->getManager();
+        $Reclamation = $em->getRepository(Reclamation::class)->find($id);
+        $em->Remove($Reclamation);
+         $em->flush();
+
+           return $this->redirectToRoute('listrecBack');
+
+    }
  
 }

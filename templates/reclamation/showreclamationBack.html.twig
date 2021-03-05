@@ -1,0 +1,41 @@
+{% extends 'base2.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+
+  <h2> <center>Consulter réclamation</h2>
+
+  <br></br>
+
+<div class="container">
+<p>Sujet : </p>
+  <div class="well">{{ Reclamation.sujet }}</div>
+  
+</div>
+
+  
+<div class="container">
+ <p>Date : </p>
+  <div class="well">{{ Reclamation.date}}</div>
+ 
+</div>
+<div class="container">
+   <p>Description : </p>
+  <div class="well well-lg">{{ Reclamation.description}}</div>
+  
+  
+</div>
+  <br></br>
+  
+          <div class="col-md-12">
+            <div class="section-heading">
+              <a href="{{path('deletereclamationBack', {'id': Reclamation.id}) }}"> Supprimer</a>
+            </div>
+          </div>
+
+     
+
+ </div>
+{% endblock %}
+

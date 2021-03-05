@@ -107,6 +107,19 @@ class UsersController extends AbstractController
 
     }
 
+ /**
+     * @Route("/showUser/{id}", name="showUser")
+     */
+
+    public function showUser($id): Response
+    {
+        $repository=$this->getDoctrine()->getRepository(User::Class);
+        $User=$repository->find($id);
+
+        return $this->render('users/showUser.html.twig', [
+            'User' => $User,
+        ]);
+}
 
   /**
      * @Route("/login", name="login")

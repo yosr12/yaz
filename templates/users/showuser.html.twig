@@ -1,0 +1,60 @@
+{% extends 'base2.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+
+  <h2> <center>Consulter User</h2>
+
+  <br></br>
+
+<div class="container">
+<p>Name: </p>
+  <div class="well">{{ User.name }}</div>
+  
+</div>
+
+  
+<div class="container">
+ <p>Family name : </p>
+  <div class="well">{{ User.fname}}</div>
+ 
+</div>
+<div class="container">
+   <p>Birthday : </p>
+  <div class="well">{{ User.birthday}}</div>
+  
+  <div class="container">
+<p>Gender: </p>
+  <div class="well"> {{ User.gender }}</div>
+  
+</div>
+
+  
+<div class="container">
+ <p>Tel number : </p>
+  <div class="well">{{ User.num}}</div>
+ 
+</div>
+<div class="container">
+   <p>Email : </p>
+  <div class="well">{{ User.email}}</div>
+  
+</div>
+<div class="container">
+   <p>Password : </p>
+  <div class="well">{{ User.password}}</div>
+  
+</div>
+  <br></br>
+  <div class="col-md-12">
+              <a href="{{ path('updateUser', {'id': User.id}) }}"> Modifier</a>
+              <br></br>
+              <a href="{{path('deleteUser', {'id': User.id}) }}"> Supprimer</a>
+          </div>
+
+     
+
+ </div>
+{% endblock %}
+
