@@ -26,31 +26,27 @@ class User
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="name is required")
+     * @Assert\NotBlank(message="Name is required")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="fname is required")
+     * @Assert\NotBlank(message="Last nname is required")
      */
     private $fname;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank(message="birthday is required")
-     */
-    private $birthday;
+    
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="gender is required")
+     * @Assert\NotBlank(message="Gender is required")
      */
     private $gender;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank(message="num is required")
+     * @Assert\NotBlank(message="Num is required")
      * @Assert\Length(min="8",minMessage="Votre num de télèphone doit contenir 8 entiers")
      * @Assert\Length(max="8",maxMessage="Votre num de télèphone doit contenir 8 entiers")
      */
@@ -58,24 +54,37 @@ class User
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank(message="email is required")
+     * @Assert\NotBlank(message="Email is required")
      * @Assert\Email(message = "The email '{{ value }}' is not a valid email")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="password is required")
+     * @Assert\NotBlank(message="Password is required")
      * @Assert\Length(min="6",minMessage="Votre mot de passe doit contenir au min 6 caractères")
      */
     private $password;
 
     /**
-     *@Assert\NotBlank(message="confirmpassword is required")
+     *@Assert\NotBlank(message="Confirmpassword is required")
      *@Assert\EqualTo(propertyPath="password",message="Vérifier votre password")
      */
 
     private $confirmpassword;
+
+    /**
+     * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="Birthday is required")
+     * @Assert\LessThan("today")
+     */
+    private $birthday;
+
+    /**
+     * @ORM\Column(type="string", length=200, nullable=true)
+     * @Assert\NotBlank(message="Il faut insérer une image")
+     */
+    private $image;
 
     public function getId(): ?int
     {
@@ -106,17 +115,7 @@ class User
         return $this;
     }
 
-    public function getBirthday(): ?string
-    {
-        return $this->birthday;
-    }
-
-    public function setBirthday(string $birthday): self
-    {
-        $this->birthday = $birthday;
-
-        return $this;
-    }
+    
 
     public function getGender(): ?string
     {
@@ -173,6 +172,30 @@ class User
     public function setconfirmpassword(string $confirmpassword): self
     {
         $this->confirmpassword = $confirmpassword;
+
+        return $this;
+    }
+
+    public function getBirthday(): ?\DateTimeInterface
+    {
+        return $this->birthday;
+    }
+
+    public function setBirthday(\DateTimeInterface $birthday): self
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
 
         return $this;
     }

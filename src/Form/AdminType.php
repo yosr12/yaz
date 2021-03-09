@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+
 class AdminType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -18,7 +20,7 @@ class AdminType extends AbstractType
             ->add('gender')
             ->add('tel')
             ->add('email')
-            ->add('password')
+            ->add('password',PasswordType::class)
         ;
     }
 

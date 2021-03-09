@@ -44,7 +44,7 @@
                 <div class="card-body">
                 
                     <h2 class="title">Registration Info</h2>
-                    <form method="POST">
+                  
                     {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
                      <div class="row row-space">
                       <div class="col-2">
@@ -63,8 +63,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                 {{ form_errors(form.birthday) }}
-                                 {{ form_widget(form.birthday,{'attr': {'class': 'input--style-1 js-datepicker' , 'placeholder' : 'BIRTHDATE'}}) }}
-                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                 {{ form_widget(form.birthday,{'attr': {'class': 'input--style-1' , 'placeholder' : 'BIRTHDATE'}}) }}
                                 </div>
                              </div>
                             <div class="col-2">
@@ -87,6 +86,12 @@
                                 </div>
                                 <div class="col-2">
                             <div class="input-group">
+                            {{ form_errors(form.image) }}
+                             {{ form_widget(form.image) }}
+                                </div>
+                                </div>
+                                <div class="col-2">
+                            <div class="input-group">
                             {{ form_errors(form.password) }}
                              {{ form_widget(form.password,{'attr': {'class': 'input--style-1' , 'placeholder' : 'Password', 'type':'password'}}) }}
                                 </div>
@@ -97,6 +102,7 @@
                              {{ form_widget(form.confirmpassword,{'attr': {'class': 'input--style-1' , 'placeholder' : 'Confirm Password', 'type':'password'}}) }}
                                 </div>
                                 </div>
+                                
                                  <div class="col-2">
                                    <div class="signup-image">
                         <figure><img src="images/signup-image.jpg" alt="sing up image" width="300"></figure>
@@ -122,7 +128,7 @@
                         </div>
                         </div>
                         {{ form_end(form) }}
-                         </form>
+                    
                 </div>
             </div>
         </div>

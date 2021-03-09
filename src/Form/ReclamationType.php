@@ -6,6 +6,7 @@ use App\Entity\Reclamation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ReclamationType extends AbstractType
 {
@@ -13,8 +14,8 @@ class ReclamationType extends AbstractType
     {
         $builder
             ->add('date')
-            ->add('sujet')
-            ->add('description')
+            ->add('sujet',TextType::class)
+            ->add('description',TextType::class)
         ;
     }
 

@@ -4,16 +4,20 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
-use App\Repository\UserRepository;
 
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class UsersController extends AbstractController
 {
@@ -39,13 +43,16 @@ class UsersController extends AbstractController
         $form->handleRequest($request);
 
        if ($form->isSubmitted()&& $form->isValid()){
-        $User = $form->getData();
-        $em=$this->getDoctrine()->getManager();
-
-        $em->persist($User);
-        $em->flush();
-        return $this->redirectToRoute('users');
-}
+           //$User=$form->getData();
+           $file=$User->getImage();
+           $fileName=md5(uniqid()).'.'.$file->guessExtension();
+           $file->move($this->getParameter('upload_directory'), $fileName);
+           $User->setImage($fileName);
+           $em=$this->getDoctrine()->getManager();
+           $em->persist($User);
+           $em->flush();
+           return $this->redirectToRoute('users');
+        }
         return $this->render('users/register.html.twig', [
             'form' => $form->createView(),
         ]);
@@ -107,15 +114,54 @@ class UsersController extends AbstractController
 
     }
 
+ /**
+     * @Route("/showUser/{id}", name="showUser")
+     */
 
+    public function showUser($id): Response
+    {
+        $repository=$this->getDoctrine()->getRepository(User::Class);
+        $User=$repository->find($id);
+
+        return $this->render('users/showUser.html.twig', [
+            'User' => $User,
+        ]);
+}
+/**
+     * @Route("/TrierParDate", name="TrierParDate")
+     */
+    public function TrierParDate()
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $Users = $repository->findByDate();
+
+        return $this->render('users/listusers.html.twig', [
+            'Users' => $Users,
+        ]);
+    }
+
+    /**
+     * @Route("/TrierParDate2", name="TrierParDate2")
+     */
+    public function TrierParDate2()
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $Users = $repository->findByDate2();
+
+        return $this->render('users/listusers.html.twig', [
+            'Users' => $Users,
+        ]);
+    }
+    
   /**
-     * @Route("/login", name="test_login")
+     * @Route("/login", name="login")
      */
     public function login(){
 
-        
-        return $this->render('users/login.html.twig');
-    }
+     
+        return $this->render('users/login.html.twig' );
+    
+}
    
 
      /**

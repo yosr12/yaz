@@ -1,8 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
 {% block title %}Admin index{% endblock %}
 
 {% block body %}
+
+<section id="main-content">
+      <section class="wrapper">
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt">
+          <div class="col-lg-6 col-md-6 col-sm-6">
     <h1>Admin index</h1>
 
     <table class="table">
@@ -44,4 +50,7 @@
     </table>
 
     <a href="{{ path('admin_new') }}">Create new</a>
+    </div>
+</div>
+</section>
 {% endblock %}

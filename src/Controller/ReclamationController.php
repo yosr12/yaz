@@ -96,4 +96,112 @@ class ReclamationController extends AbstractController
 
     }
 
+    /**
+     * @Route("/showreclamation/{id}", name="showreclamation")
+     */
+
+    public function showreclamation($id): Response
+    {
+        $repository=$this->getDoctrine()->getRepository(Reclamation::Class);
+        $Reclamation=$repository->find($id);
+
+        return $this->render('reclamation/showReclamation.html.twig', [
+            'Reclamation' => $Reclamation,
+        ]);
+}
+ /**
+     * @Route("/listrecBack", name="listrecBack")
+     */
+    public function listrecBack()
+
+   {
+    $repository=$this->getDoctrine()->getRepository(Reclamation::Class);
+    $Reclamations=$repository->findAll();
+
+    return $this->render('reclamation/listrecBack.html.twig', [
+        
+        'Reclamations' => $Reclamations,
+    ]);
+    
+    }
+ /**
+     * @Route("/showreclamationBack/{id}", name="showreclamationBack")
+     */
+
+    public function showreclamationBack($id): Response
+    {
+        $repository=$this->getDoctrine()->getRepository(Reclamation::Class);
+        $Reclamation=$repository->find($id);
+
+        return $this->render('reclamation/showreclamationBack.html.twig', [
+            'Reclamation' => $Reclamation,
+        ]);
+}
+
+    /**
+     * @Route("/deletereclamationBack/{id}", name="deletereclamationBack")
+     */
+    public function deletereclamationBack($id)
+    {
+      
+        $em=$this->getDoctrine()->getManager();
+        $Reclamation = $em->getRepository(Reclamation::class)->find($id);
+        $em->Remove($Reclamation);
+         $em->flush();
+
+           return $this->redirectToRoute('listrecBack');
+
+    }
+    /**
+     * @Route("/TrierReclamation", name="TrierReclamation")
+     */
+    public function TrierReclamation()
+    {
+        $repository = $this->getDoctrine()->getRepository(Reclamation::class);
+        $Reclamations = $repository->findByReclamation();
+
+        return $this->render('reclamation/listrecBack.html.twig', [
+            'Reclamations' => $Reclamations,
+        ]);
+    }
+
+     /**
+     * @Route("/TrierReclamation2", name="TrierReclamation2")
+     */
+    public function TrierReclamation2()
+    {
+        $repository = $this->getDoctrine()->getRepository(Reclamation::class);
+        $Reclamations = $repository->findByReclamation2();
+
+        return $this->render('reclamation/listrecBack.html.twig', [
+            'Reclamations' => $Reclamations,
+        ]);
+    }
+
+    /**
+     * @Route("/TrierReclUser", name="TrierReclUser")
+     */
+    public function TrierReclUser()
+    {
+        $repository = $this->getDoctrine()->getRepository(Reclamation::class);
+        $Reclamations = $repository->findByReclUser();
+
+        return $this->render('reclamation/listRec.html.twig', [
+            'Reclamations' => $Reclamations,
+        ]);
+    }
+
+     /**
+     * @Route("/TrierReclUser2", name="TrierReclUser2")
+     */
+    public function TrierReclUser2()
+    {
+        $repository = $this->getDoctrine()->getRepository(Reclamation::class);
+        $Reclamations = $repository->findByReclUser2();
+
+        return $this->render('reclamation/listRec.html.twig', [
+            'Reclamations' => $Reclamations,
+        ]);
+    }
+ 
 }

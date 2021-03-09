@@ -20,19 +20,19 @@ class Reclamation
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="date is required")
+     * @Assert\NotBlank(message="Date is required")
      */
     private $date;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="sujet is required")
+     * @Assert\NotBlank(message="Sujet is required")
      */
     private $sujet;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="description is required")
+     * @Assert\NotBlank(message="Description is required")
      */
     private $description;
 

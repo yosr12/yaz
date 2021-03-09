@@ -18,7 +18,39 @@ class ReclamationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Reclamation::class);
     }
+    public function findByReclamation()
+    {
+        return $this->createQueryBuilder('Reclamation')
+            ->orderBy('Reclamation.date','DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function findByReclamation2()
+    {
+        return $this->createQueryBuilder('Reclamation')
+            ->orderBy('Reclamation.date','ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
+    public function findByReclUser()
+    {
+        return $this->createQueryBuilder('Reclamation')
+            ->orderBy('Reclamation.date','DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function findByReclUser2()
+    {
+        return $this->createQueryBuilder('Reclamation')
+            ->orderBy('Reclamation.date','ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return Reclamation[] Returns an array of Reclamation objects
     //  */
