@@ -1,19 +1,27 @@
 {% extends 'base2.html.twig' %}
 
 {% block body %}
+<<<<<<< HEAD
 <section id="main-content">
       <section class="wrapper">
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
+=======
+
+>>>>>>> 4b843f880663fb0d98f7811352796ce695e818aa
 <div class="container">
 
   <h2> <center>Consulter User</h2>
 
   <br></br>
+<<<<<<< HEAD
   <a href="{{ path('listUser', {'id': User.id}) }}"><img src="{{ asset ('uploads/' ~ User.image) }}"  alt=""height="200px" width="400px" ></a>
 
  <br></br>
+=======
+
+>>>>>>> 4b843f880663fb0d98f7811352796ce695e818aa
 <div class="container">
 <p>Name: </p>
   <div class="well">{{ User.name }}</div>
@@ -28,7 +36,11 @@
 </div>
 <div class="container">
    <p>Birthday : </p>
+<<<<<<< HEAD
   <div class="well">{{ User.birthday|date("m/d/y")}}</div>
+=======
+  <div class="well">{{ User.birthday}}</div>
+>>>>>>> 4b843f880663fb0d98f7811352796ce695e818aa
   
   <div class="container">
 <p>Gender: </p>
