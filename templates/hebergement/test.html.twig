@@ -1,0 +1,70 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+<img width="200px;" src="assets/img/esprit.png" alt="Mon logo">
+<h1 id="dd1"> Liste des hotels</h1>
+</br>
+<input type="submit" id="search" class="form-control" placeholder="Search"><div>
+<table border ="1" id="search" class="table table-hover table-dark">
+  <thead class="thead-dark">
+  <tr>
+   <td  >Nom</td>
+    <td >Adresse</td>
+    <td >Description</td>
+     <td >Editer</td>
+</tr>
+</thead>
+<tbody id="search">
+    {% for hotel in hotels %}
+<tr>
+   <td>
+{{ hotel.nom }}
+   </td>
+   <td>
+{{ hotel.adresse }}
+   </td>
+   <td>
+{{ hotel.description }}
+   </td>
+<td>
+<a href="{{ path('updateHotel', {'id': hotel.id}) }}"> modifier</a>
+<a href="{{ path('deleteHotel', {'id': hotel.id}) }}"> supprimer</a>
+   </td> 
+</tr>
+{% endfor %}
+</tbody>
+<tbody id="search">
+</tbody>
+</table>
+</div>
+<script>
+$( document ).ready(function() {
+        $("#search").keyup(function(e){
+          var value = $(this).val();
+             $.ajax({
+                url : "{{ path('adminhotels') }}",
+                type : 'GET', 
+                data: {
+                        'searchValue' : value
+                    },
+                success : function(retour){
+                  if(retour){
+  			$('#t tbody#search').empty();
+  			$.each(JSON.parse(retour), function(i, obj) {
+  			$('#t tbody#all').hide();
+  			$('#t tbody#search').append('<tr><td> '+obj.nom+'  </td><td>    '+obj.adresse+' </td><td><a href="updateHotel/'+obj.id+'">modifier</a> </br><a href="deleteHotel/'+obj.id+'">supprimer</a></td></tr>');
+});
+                  }
+                  else
+                  {
+   $('#t tbody#all').show();
+   $('#t tbody#search').empty();
+   $('#t tbody#search').fadeIn('fast');
+                     }
+ },
+        });
+        return false;
+        });
+    });
+        </script>
+      {% endblock %}
+

@@ -22,44 +22,45 @@ class Hotel
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="name is required")
+     * @Assert\NotBlank(message="Vérifier le nom! ")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Adresse is required")
+     * @Assert\NotBlank(message="Vérifier l'adresse! ")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="float")
-     * @Assert\NotBlank(message="Price is required")
-     * @Assert\Length(max="3",maxMessage="Price should be higher")
+     * @Assert\NotBlank(message="Vérifier le prix! ")
+
      */
     private $price;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="image is required")
+     * @Assert\NotBlank(message="Vérifier l'image! ")
+
      */
     private $image;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="description is required")
+     * @Assert\NotBlank(message="Vérifier la description! ")
      */
     private $description;
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\NotBlank(message="date is required")
+     * @Assert\NotBlank(message="Vérifier la date! ")
      */
     private $datedebut;
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\NotBlank(message="date is required")
+     * @Assert\NotBlank(message="Vérifier la date! ")
      */
     private $datefin;
 

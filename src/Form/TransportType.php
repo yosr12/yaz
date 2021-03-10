@@ -8,14 +8,16 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
+
 class TransportType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
+            ->add('nom',TextType::class)
             ->add('type', ChoiceType::class,[
                 'choices' =>[
                     '' =>[
@@ -26,9 +28,9 @@ class TransportType extends AbstractType
                     ],
                 ],
             ])        
-            ->add('description')
-            ->add('disponibilite')
-            ->add('price')
+            ->add('description',TextType::class)
+            ->add('disponibilite',TextType::class)
+            ->add('price',TextType::class)
         ;
     }
 

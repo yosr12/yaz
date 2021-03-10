@@ -45,7 +45,7 @@ class TransportsController extends AbstractController
         
         $form->add('Envoyer', SubmitType::class);
         $form->handleRequest($request);
-        if($form->isSubmitted()){
+        if($form->isSubmitted()&& $form->isValid()){
             $Transport=$form->getData();
             $em=$this->getDoctrine()->getManager();
             $em->persist($Transport);

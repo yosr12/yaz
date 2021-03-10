@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 
 class MaisondhoteType extends AbstractType
@@ -15,13 +16,13 @@ class MaisondhoteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('adresse')
-            ->add('price')
+            ->add('nom',TextType::class)
+            ->add('adresse',TextType::class)
+            ->add('price',TextType::class)
             ->add('image',FileType::class,array('data_class'=>null,'required'=>false))            
-            ->add('description')
-            ->add('datedebut')
-            ->add('datefin')
+            ->add('description',TextType::class)
+            ->add('datedebut',TextType::class)
+            ->add('datefin',TextType::class)
         ;
     }
 

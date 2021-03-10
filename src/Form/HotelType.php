@@ -17,9 +17,9 @@ class HotelType extends AbstractType
         $builder
             ->add('nom',TextType::class)
             ->add('adresse',TextType::class)
-            ->add('price',TextType::class)
-            ->add('image',FileType::class,array('data_class'=>null,'required'=>false),TextType::class)            
-            ->add('description',TextType::class)
+            ->add('price')
+            ->add('image',FileType::class,array('data_class'=>null,'required'=>false))            
+            ->add('description')
             ->add('datedebut')
             ->add('datefin')
         ;

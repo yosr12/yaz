@@ -1,5 +1,5 @@
 {% extends 'back.html.twig' %}
-{%block body%}
+{% block body  %}
 <section id="main-content">
       <section class="wrapper">
         
@@ -13,10 +13,22 @@
   <br> </br>
   <h2> <center>Liste des hotels</h2>
   <div class="col-md-12">
+  <form method="post" action="{{ path('search') }}">
+    <label>Nom</label>
+<input type="text" id="search" class="form-control" placeholder="Search"></form>
+<form action="{{ path('HotelsOrderASC') }}">
+   
+   <input type="submit" value="TrierASC">
+</form>
+<form action="{{ path('HotelsOrderDESC') }}">
+   
+   <input type="submit" value="TrierDESC">
+</form>
             <div class="section-heading">
              <left> <a href="/hebergement/newHotel">Ajouter un Offre <i class="fa fa-angle-right"></i></a>
             </div>
           </div>
+          
 <table class="table table-striped">
     <thead>
       <tr>
@@ -29,7 +41,7 @@
         <th>Editer</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="search">
     {% for hotel in hotels %}
       <tr><td>
        {{ hotel.nom }}
@@ -54,7 +66,60 @@
     </tbody>
     {% endfor %}
   </table>
+   <!--CUSTOM CHART START -->
+            <div class="border-head">
+              <h3>Hotels Statistics</h3>
+            </div>
+            <div class="custom-bar-chart">
+              <ul class="y-axis">
+              {% for hotel in hotels %}
+                <li><span>{{hotel.datedebut|date("M")}}</span></li>
+                
+              {% endfor %}
+              </ul>
+              {% for hotel in hotels %}
+              <div class="bar">
+                <div class="title">{{ hotel.nom }}</div>
+                <div class="value tooltips" data-toggle="tooltip" data-placement="top">50%</div>
+              </div>
+              
+              {% endfor %}
+              
     </div>
+    </section>
+    </section>
+    
 
 
-{%endblock%}
+<script>
+$( document ).ready(function() {
+        $("#search").keyup(function(e){
+          var value = $(this).val();
+             $.ajax({
+                url : "{{ path('adminhotels') }}",
+                type : 'POST', 
+                data: {
+                        'searchValue' : value
+                    },
+                success : function(retour){
+                  if(retour){
+  			$('#t tbody#search').empty();
+  			$.each(JSON.parse(retour), function(i, obj) {
+  			$('#t tbody#all').hide();
+  			$('#t tbody#search').append('<tr><td> '+obj.id+'  </td><td>    '+obj.nsc+'  </td><td>'+obj.email+' </td><td><a href="updateStudent/'+obj.id+'">modifier</a> </br><a href="deleteStudent/'+obj.id+'">supprimer</a></td></tr>');
+});
+                  }
+                  else
+                  {
+   $('#t tbody#all').show();
+   $('#t tbody#search').empty();
+   $('#t tbody#search').fadeIn('fast');
+                     }
+ },
+        });
+        return false;
+        });
+    });
+        </script>
+
+{% endblock %}

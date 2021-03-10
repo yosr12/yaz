@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MaisondhoteRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=MaisondhoteRepository::class)
@@ -19,11 +20,15 @@ class Maisondhote
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="veuillez renseignez ce champ. ")
+
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="veuillez renseignez ce champ. ")
+
      */
     private $adresse;
 
@@ -34,21 +39,25 @@ class Maisondhote
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="veuillez renseignez ce champ. ")
      */
     private $image;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="veuillez renseignez ce champ. ")
      */
     private $description;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="veuillez renseignez ce champ. ")
      */
     private $datedebut;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="veuillez renseignez ce champ. ")
      */
     private $datefin;
 

@@ -4,7 +4,7 @@
 <br>
 <br>
 <br>
-<section id="main-content">
+  <section id="main-content">
       <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i> Formulaire Hébergement</h3>
         <!-- BASIC FORM ELELEMNTS -->
@@ -12,10 +12,11 @@
           <div class="col-lg-6 col-md-6 col-sm-6">
             
         {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
-              <div class="form-group">
-              {{ form_errors(form.nom) }}
+        
+            <div class="form-group">
+           {{ form_errors(form.nom) }}
            {{ form_widget(form.nom,{'attr': {'class': 'form-control' , 'placeholder' : 'Nom'}}) }}
-              </div>
+            </div>
               <div class="form-group">
               {{ form_errors(form.price) }}
               {{ form_widget(form.price,{'attr': {'class': 'form-control' , 'placeholder' : 'Prix'}}) }}
@@ -54,7 +55,10 @@
               <div class="form-send">
               {{ form_widget(form.Envoyer,{'attr': {'class': 'btn btn--radius btn--green ', 'placeholder' : 'Envoyer'}}) }}
               </div>
-            
-        {{ form_end(form) }}
+              {{ form_end(form) }}
+          </div>  
+        
         </div>
+      </section>
+  </section>
 {% endblock %}

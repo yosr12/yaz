@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TransportRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert ;
 
 /**
  * @ORM\Entity(repositoryClass=TransportRepository::class)
@@ -19,27 +20,32 @@ class Transport
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $nom;
 
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $disponibilite;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $price;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $type;
 

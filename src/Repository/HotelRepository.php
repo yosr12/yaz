@@ -18,6 +18,30 @@ class HotelRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Hotel::class);
     }
+    public function findHotelbyNom($nom){
+        return $this->createQueryBuilder('hotel')
+            ->where('hotel.nom LIKE :nom')
+            ->setParameter('nom', '%'.$nom.'%')
+            ->getQuery()
+            ->getResult();
+    }
+    public function trierNomASC()
+    {
+        return $this->createQueryBuilder('hotel')
+            ->orderBy('hotel.nom','ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function trierNomDESC()
+    {
+        return $this->createQueryBuilder('hotel')
+            ->orderBy('hotel.nom','DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 
     // /**
     //  * @return Hotel[] Returns an array of Hotel objects

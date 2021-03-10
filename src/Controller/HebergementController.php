@@ -2,29 +2,37 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Hotel;
-use App\Entity\Maisondhote;
 use App\Entity\Villa;
 use App\Form\HotelType;
-use App\Form\MaisondhoteType;
 use App\Form\VillaType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use App\Entity\Maisondhote;
+use App\Form\MaisondhoteType;
+use App\Repository\HotelRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
+use Knp\Component\Pager\PaginatorInterface ; 
 
 class HebergementController extends AbstractController
 {
     /**
      * @Route("/hebergement/hotels", name="hotels")
      */
-    public function hotels(): Response
+    public function hotels(Request $request , PaginatorInterface $paginator ): Response
     {
         $repository=$this->getDoctrine()->getRepository(Hotel::Class);
-        $Hotels=$repository->findAll();
+        $Hotelssss=$repository->findAll();
+        $Hotels = $paginator->paginate(
+            $Hotelssss,
+            $request->query->getInt('page',1),
+            3
+        );
         return $this->render('hebergement/hotels.html.twig', [
             'hotels' => $Hotels,
         ]);
@@ -52,7 +60,7 @@ class HebergementController extends AbstractController
         
         $form->add('Envoyer', SubmitType::class);
         $form->handleRequest($request);
-        if($form->isSubmitted()){
+        if($form->isSubmitted()&& $form->isValid()){
             $Hotel=$form->getData();
             $file=$Hotel->getImage();
             $fileName=md5(uniqid()).'.'.$file->guessExtension();
@@ -103,6 +111,69 @@ class HebergementController extends AbstractController
 
       
     }
+    /**
+     * @Route("/admin/searchHotel ", name="search")
+     */
+    /*function search(HotelRepository $repository,Request $request){
+        $data=$request->get('search');
+        $Hotels=$repository->findBy(['nom'=>$data]);
+        return $this->render('hebergement/adminhotels.html.twig', [
+            'hotels' => $Hotels,
+        ]);
+    }*/
+    public function searchHotel(Request $request,NormalizerInterface $Normalizer)
+    {
+        $repository = $this->getDoctrine()->getRepository(Hotel::class);
+        $requestString=$request->get('searchValue');
+        $Hotels = $repository->findHotelbyNom($requestString);
+
+        
+      
+        if($request->isXmlHttpRequest()){
+            $serializer = new Serializer(array(new ObjectNormalizer()));
+            $Hotels=$em->getRepository(Hotel::class)
+            ->findBy(array('nom'=>$request->get('nom')));
+            $jsonContent = $Normalizer->normalize($Hotels, 'json',['groups'=>'hotels']);
+            $retour=json_encode($jsonContent);
+
+            return new JsonResponse($retour);
+        }
+        return $this->render('hebergement/adminhotels.html.twig',[
+            'hotels' => $Hotels
+         ]);
+
+    }
+
+
+
+
+
+
+
+
+    /**
+     * @Route("/admin/HotelsOrderASC" , name="HotelsOrderASC")
+     */
+    public function HotelsOrderASC(){
+        $repository = $this->getDoctrine()->getRepository(Hotel::class);
+        $hotels = $repository->trierNomASC();
+        return $this->render('hebergement/adminhotels.html.twig', [
+            
+            'hotels' => $hotels,
+        ]);
+    }
+    /**
+     * @Route("/admin/HotelsOrderDESC" , name="HotelsOrderDESC")
+     */
+    public function HotelsOrderDESC(){
+        $repository = $this->getDoctrine()->getRepository(Hotel::class);
+        $hotels = $repository->trierNomDESC();
+        return $this->render('hebergement/adminhotels.html.twig', [
+            
+            'hotels' => $hotels,
+        ]);
+    }
+    
 
 
 
@@ -141,11 +212,12 @@ class HebergementController extends AbstractController
         
         $form->add('Envoyer', SubmitType::class);
         $form->handleRequest($request);
-        if($form->isSubmitted()){
+        if($form->isSubmitted()&& $form->isValid()){
             $Maisondhote=$form->getData();
             $file=$Maisondhote->getImage();
             $fileName=md5(uniqid()).'.'.$file->guessExtension();
             $file->move($this->getParameter('upload_directory'), $fileName);
+            $Maisondhote->setImage($fileName);
             $em=$this->getDoctrine()->getManager();
             $em->persist($Maisondhote);
             $em->flush();
@@ -231,12 +303,14 @@ class HebergementController extends AbstractController
         
         $form->add('Envoyer', SubmitType::class);
         $form->handleRequest($request);
-        if($form->isSubmitted()){
+        if($form->isSubmitted()&& $form->isValid()){
             
             $Villa=$form->getData();
             $file=$Villa->getImage();
             $fileName=md5(uniqid()).'.'.$file->guessExtension();
             $file->move($this->getParameter('upload_directory'), $fileName);
+            $Villa->setImage($fileName);
+
             $em=$this->getDoctrine()->getManager();
             $em->persist($Villa);
             $em->flush();

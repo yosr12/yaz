@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\VillaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert ;
 
 /**
  * @ORM\Entity(repositoryClass=VillaRepository::class)
@@ -19,16 +20,19 @@ class Villa
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $price;
 
@@ -39,16 +43,19 @@ class Villa
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $description;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $datedebut;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="veuillez renseignez ce champ")
      */
     private $datefin;
 
