@@ -1,0 +1,45 @@
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+
+                    <div class="form-horizontal style-form">
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Nom</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.Nom,{'attr': {'class': 'form-control' , 'placeholder' : 'Nom'}}) }}
+                                {{ form_errors(form.Nom) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Prix</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.Prix,{'attr': {'class': 'form-control' , 'placeholder' : 'Prix'}}) }}
+                                {{ form_errors(form.Prix) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Image</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.Image,{'attr': {'class': 'form-control' , 'placeholder' : 'Image'}}) }}
+                                {{ form_errors(form.Image) }}
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Quantite</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.Quantite,{'attr': {'class': 'form-control' , 'placeholder' : 'Quantité'}}) }}
+                                {{ form_errors(form.Quantite) }}
+
+                            </div>
+                        </div>
+
+                        <button class="btn">{{ button_label|default('Save') }}</button>
+                    </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+

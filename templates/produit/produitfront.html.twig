@@ -1,0 +1,65 @@
+{% extends "Front.html.twig" %}
+{% block lien %}  <li class="nav-item"> <a class="nav-link" href="{{ path('cart_index') }}" > Panier <i class="fa fa-shopping-cart">  </i></a></li> {% endblock %}
+{% block Amine %}
+    <input type="text" id="search" class="form-control" placeholder="Search">
+    <div class="latest-products">
+    <div class="container">
+        <div class="row">
+    {% for produit in produits %}
+    <div class="col-md-4">
+        <div class="product-item">
+            <a href="{{ path('produit_show2',{'id': produit.id}) }}"><img src="{{ asset('uploads/'~produit.Image) }}" WIDTH=150 HEIGHT=120 alt=""></a>
+            <div class="down-content">
+                <a href="package-details.html"><h4>{{ produit.Nom }}</h4></a>
+
+                <h6>{{ produit.Prix }} £</h6>
+
+                <p>Description Produit</p>
+
+                <small>
+
+                    <strong title="Nights"><i class="fa fa-cube"></i>{{ produit.Quantite }}<a> Encore Disponible </a></strong> &nbsp;&nbsp;&nbsp;&nbsp;
+
+                </small>
+                <div class="col-lg-12">
+                    <fieldset>
+
+                        <a href="{{ path('cart_add',{'id':produit.id}) }}">Ajouter panier</a>
+                        <a href="{{ path('commande_new', {'idproduit':produit.id}) }}">Reserver</a> 
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+        </div>
+    </div>
+</div>
+    <div>
+        {{ knp_pagination_render(produits) }}
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+    <div class="col-lg-12 col-md-12 col-sm-12">
+    <fieldset>
+        {{ form_widget(form.Nbproduit,{'attr': {'class': 'form-control' , 'placeholder' : 'Nombre de produit'}}) }}
+        {{ form_errors(form.Nbproduit) }}
+
+    </fieldset>
+    </div>
+<br>
+<br>
+    <div class="col-lg-12 ">
+    <fieldset>
+        {{ form_widget(form.Date,{'attr': {'class': 'form-control' , 'placeholder' : 'Nom'}}) }}
+        {{ form_errors(form.Date) }}
+
+    </fieldset>
+    </div>
+<br>
+<br>
+    <div class="col-lg-12 ">
+    <fieldset>
+        {{ form_widget(form.Methodedepaiement,{'attr': {'class': 'form-control' , 'placeholder' : 'Nom'}}) }}
+    </fieldset>
+    </div>
+<br>
+<br>
+    <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
