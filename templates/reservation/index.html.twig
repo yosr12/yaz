@@ -1,0 +1,42 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block yosr %}
+    <h1>Reservation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>voyage</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Prix</th>
+                <th>Methodedepaiement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.voyage.nom }}</td>
+                <td>{{ reservation.Datedebut ? reservation.Datedebut|date('Y-m-d') : '' }}</td>
+                <td>{{ reservation.Datefin ? reservation.Datefin|date('Y-m-d') : '' }}</td>
+                <td>{{ reservation.voyage.Prix }}</td>
+                <td>{{ reservation.Methodedepaiement }}</td>
+                <td>
+                    <a href="{{ path('reservation_show', {'id': reservation.id}) }}">show</a>
+                    <a href="{{ path('reservation_edit', {'id': reservation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

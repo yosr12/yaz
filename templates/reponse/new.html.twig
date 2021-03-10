@@ -1,0 +1,73 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}New Reponse{% endblock %}
+{% block style %} active {% endblock %}
+
+{% block yosr %}
+    <h1>Create new Reponse</h1>
+<div class="send-message">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Ajouter votre Reponse</h2>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="contact-form">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>question</th>
+                            <th>Image</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for questionn in questions %}
+
+
+
+                            <tr>
+                                <td> {{ questionn.question }} {{ questionn.id}}</td>
+
+                                <td>
+                                    <img src="{{ asset('uploads/'~questionn.image) }}" WIDTH=150 HEIGHT=120 alt="" />
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="fa">
+                                        Repondre
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        {% if questionn.type == 'yes/no' %}
+                                            <li><a href="{{ path('reponse_ajouter', { 'answer': 10 , 'idquestion':questionn.id }) }}">Yes</a></li>
+                                            <li ><a href="{{ path('reponse_ajouter', { 'answer': 20 , 'idquestion':questionn.id }) }}"> No</a></li>
+                                        {% else %}
+                                            <li><a href="{{ path('reponse_ajouter', { 'answer': 0 , 'idquestion':questionn.id }) }}">0</a></li>
+                                            <li ><a href="{{ path('reponse_ajouter', { 'answer': 1 , 'idquestion':questionn.id }) }}">1</a></li>
+                                            <li ><a href="{{ path('reponse_ajouter', { 'answer': 2 , 'idquestion':questionn.id }) }}">2</a></li>
+                                            <li ><a href="{{ path('reponse_ajouter', { 'answer': 3 , 'idquestion':questionn.id }) }}">3</a></li>
+                                            <li ><a href="{{ path('reponse_ajouter', { 'answer': 4 , 'idquestion':questionn.id }) }}">4</a></li>
+                                            <li ><a href="{{ path('reponse_ajouter', { 'answer': 5 , 'idquestion':questionn.id }) }}">5</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+    <a href="{{ path('reponse_index') }}">Voir vos reponses</a>
+
+{% endblock %}

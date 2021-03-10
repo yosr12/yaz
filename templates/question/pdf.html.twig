@@ -1,0 +1,33 @@
+
+
+{% block body %}
+    <h1>Liste des questions </h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Question</th>
+            <th>Image</th>
+            <th>Type</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.id }}</td>
+                <td>{{ question.question }}</td>
+                <td><img src=" ../../public/uploads/f8887a2e745aac2ae0fb041b66c0c5c8.jpeg" WIDTH=150 HEIGHT=120 alt="" />  </td>
+
+                <td>{{ question.type }}</td>
+
+
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

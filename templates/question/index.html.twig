@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Question index{% endblock %}
+
+{% block body %}
+    <h1>Question index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Question</th>
+                <th>Image</th>
+                <th>Type</th>
+                <th>actions</th>
+                <th>statisque</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.id }}</td>
+                <td>{{ question.question }}</td>
+                <td><img src="{{ asset('uploads/'~question.image) }}" WIDTH=150 HEIGHT=120 alt="" />  </td>
+                <td>{{ question.type }}</td>
+                <td>
+                    <a href="{{ path('question_show', {'id': question.id}) }}">show</a>
+                    <a href="{{ path('question_edit', {'id': question.id}) }}">edit</a>
+                    <a href="{{ path('question_delete', {'id': question.id}) }}">Delete</a>
+                </td>
+                <td>
+
+                    <a href="{{  path('question_indexxx', {'idqs': question.id}) }}">afficher stat</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div id="div_chart"></div>
+    <div id="div_histogram"></div>
+
+    {% if piechart is defined %}
+        <script type="text/javascript" src="{{ asset('https://www.gstatic.com/charts/loader.js') }}"></script>
+        <script type="text/javascript">
+            {% if type == 'yes/no' %}
+                {{ gc_draw(piechart, 'div_chart') }}
+            {% else %}
+            {{ gc_draw(piechart, 'div_chart') }}
+            {% endif %}
+
+        </script>
+    {% endif %}
+
+    <a href="{{ path('question_new') }}">Create new</a>
+    <a href="{{ path('pdf') }}">pdf</a>
+{% endblock %}

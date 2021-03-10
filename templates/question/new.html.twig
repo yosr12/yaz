@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reponse{% endblock %}
+{% block style %} active {% endblock %}
+
+{% block body %}
+    <h1>Nouvelle Question</h1>
+    <div class="send-message">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>Ajouter une question</h2>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        {% set id = 1 %}
+                        {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <fieldset >
+                                    <h4>Question</h4>
+                                    {{ form_widget(form.question,{'attr': {'class': 'form-control' , 'placeholder' : 'Question'}}) }}
+                                    {{ form_errors(form.question,{'attr': {'class':'text-danger'}} ) }}
+                                </fieldset>
+                            </div>
+                            <h4>Image</h4>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <fieldset>
+                                    {{ form_errors(form.Image,{'attr': {'class':'text-danger'}} ) }}
+                                    {{ form_widget(form.Image,{'attr': {'class': 'form-control' , 'placeholder' : 'description'}}) }}
+                                </fieldset>
+                            </div>
+                            <h4>Type</h4>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <fieldset>
+                                    {{ form_widget(form.type,{'attr': {'class': 'form-control' , 'placeholder' : 'description'}}) }}
+                                </fieldset>
+                            </div><br><br><br>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Ajouter') }}</button>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <a href="{{ path('question_index') }}">Voir vos reponses</a>
+
+{% endblock %}

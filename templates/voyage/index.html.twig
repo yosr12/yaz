@@ -1,0 +1,39 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Voyage index{% endblock %}
+
+{% block yosr %}
+
+        <div class="latest-products">
+            <div class="container">
+                <div class="row">
+        {% for voyage in voyages %}
+        <div class="col-md-4">
+            <div class="product-item">
+                <a href="package-details.html"><img src="{{ asset('uploads/'~voyage.Image) }}" WIDTH=150 HEIGHT=120 alt=""></a>
+                <div class="down-content">
+                    <a href="package-details.html"><h4>{{ voyage.Nom }}</h4></a>
+
+                    <h6>{{ voyage.Prix }} £</h6>
+
+                    <p>Description voyage</p>
+
+                    <small>
+
+                        <strong title="Nights"><i class="fa fa-cube"></i>{{ voyage.description }}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+
+                    </small>
+                    <div class="col-lg-12">
+                        <fieldset>
+                            <a href="{{ path('reservation_new', {'idvoyage':voyage.id}) }}">Reserver</a>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+        </div>
+    <a href="{{ path('voyage_new') }}">Create new</a>
+        {% endblock %}
